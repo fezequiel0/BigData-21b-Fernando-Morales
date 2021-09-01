@@ -1,3 +1,3 @@
-### Reporte práctica 1
-## Fernando Morales
-## B85338
+# Reporte práctica 1
+### Fernando Morales
+### B85338
