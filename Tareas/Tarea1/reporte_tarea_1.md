@@ -3,9 +3,9 @@
 #### Fernando Morales B85338
 
 1. Las siguientes tres preguntas serán las estudiadas con el dataset [*Obesity among adults by country, 1975-2016*](https://www.kaggle.com/amanarora/obesity-among-adults-by-country-19752016?select=data.csv):
-    - Cuál es el país cuyo índice de obesidad ha aumentado porcentualmente más desde el 2006 hasta el 2016?
-    - Cuál es el país con el índice promedio de obesidad menor entre 2006 hasta el 2016?
-    - Cuál sexo es el que promedia un índice mayor de obesidad?
+    - Cuál es el país cuyo índice de obesidad ha aumentado porcentualmente más en hombres desde el 2006 hasta el 2016?
+    - Cuál es el país con el índice promedio de obesidad menor para ambos sexos  entre el 2006 hasta el 2016?
+    - Cuál es el país con el índice promedio de obesidad mayor en mujeres entre el 2006 hasta el 2016?
 
 2. Los problemas que tiene el dataset son los siguientes:
    - Tiene como columnas los valores de los años
