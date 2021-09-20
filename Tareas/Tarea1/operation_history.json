@@ -1,0 +1,146 @@
+[
+    {
+      "op": "core/column-rename",
+      "oldColumnName": "Column",
+      "newColumnName": "Country",
+      "description": "Rename column Column to Country"
+    },
+    {
+      "op": "core/transpose-columns-into-rows",
+      "startColumnName": "2016",
+      "columnCount": -1,
+      "ignoreBlankCells": true,
+      "fillDown": true,
+      "separator": null,
+      "keyColumnName": "Year",
+      "valueColumnName": "Index",
+      "description": "Transpose cells in columns starting with 2016 into rows in two new columns named Year and Index"
+    },
+    {
+      "op": "core/column-split",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Year",
+      "guessCellType": true,
+      "removeOriginalColumn": true,
+      "mode": "lengths",
+      "fieldLengths": [
+        4,
+        1
+      ],
+      "description": "Split column Year by field lengths"
+    },
+    {
+      "op": "core/column-rename",
+      "oldColumnName": "Year 1",
+      "newColumnName": "Year",
+      "description": "Rename column Year 1 to Year"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Year 2",
+      "expression": "jython:if value == 2:\n    return 'Male'\nif value == 3:\n    return 'Female'\nelse: \n    return 'Both'",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Year 2 using expression jython:if value == 2:\n    return 'Male'\nif value == 3:\n    return 'Female'\nelse: \n    return 'Both'"
+    },
+    {
+      "op": "core/column-rename",
+      "oldColumnName": "Year 2",
+      "newColumnName": "Sex",
+      "description": "Rename column Year 2 to Sex"
+    },
+    {
+      "op": "core/column-split",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Index",
+      "guessCellType": true,
+      "removeOriginalColumn": true,
+      "mode": "separator",
+      "separator": " ",
+      "regex": false,
+      "maxColumns": 0,
+      "description": "Split column Index by separator"
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "Index 3",
+      "description": "Remove column Index 3"
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "Index 4",
+      "description": "Remove column Index 4"
+    },
+    {
+      "op": "core/column-rename",
+      "oldColumnName": "Index 1",
+      "newColumnName": "Index average",
+      "description": "Rename column Index 1 to Index average"
+    },
+    {
+      "op": "core/column-rename",
+      "oldColumnName": "Index 2",
+      "newColumnName": "Index Intervals",
+      "description": "Rename column Index 2 to Index Intervals"
+    },
+    {
+      "op": "core/row-removal",
+      "engineConfig": {
+        "facets": [
+          {
+            "type": "range",
+            "name": "Year",
+            "expression": "value",
+            "columnName": "Year",
+            "from": 1975,
+            "to": 2006,
+            "selectNumeric": true,
+            "selectNonNumeric": true,
+            "selectBlank": true,
+            "selectError": true
+          }
+        ],
+        "mode": "row-based"
+      },
+      "description": "Remove rows"
+    },
+    {
+      "op": "core/row-removal",
+      "engineConfig": {
+        "facets": [
+          {
+            "type": "list",
+            "name": "Index average",
+            "expression": "value",
+            "columnName": "Index average",
+            "invert": false,
+            "omitBlank": false,
+            "omitError": false,
+            "selection": [
+              {
+                "v": {
+                  "v": "No",
+                  "l": "No"
+                }
+              }
+            ],
+            "selectBlank": false,
+            "selectError": false
+          }
+        ],
+        "mode": "row-based"
+      },
+      "description": "Remove rows"
+    }
+  ]
